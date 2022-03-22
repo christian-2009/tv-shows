@@ -11,7 +11,7 @@ interface IEpisode {
   airtime: string;
   airstamp: string;
   runtime: number;
-  rating: {average : number}
+  rating: { average: number };
   image: {
     medium: string;
     original: string;
@@ -30,4 +30,4 @@ export function fixSummary(array: IEpisode[]) {
 }
 
 const fixedSummaryEpisodes = fixSummary(episodes);
-export {fixedSummaryEpisodes};
+export { fixedSummaryEpisodes };

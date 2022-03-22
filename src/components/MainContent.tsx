@@ -1,5 +1,5 @@
 import React from "react";
-import {fixedSummaryEpisodes} from "../utils/fixSummary";
+import { fixedSummaryEpisodes } from "../utils/fixSummary";
 import EpisodeEntry from "./EpisodeEntry";
 
 export default function MainContent(): JSX.Element {
