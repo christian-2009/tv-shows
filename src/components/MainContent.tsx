@@ -1,7 +1,7 @@
 import Footer from "./Footer";
 import { fixedSummaryEpisodes } from "../utils/fixSummary";
 import EpisodeEntry from "./EpisodeEntry";
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 interface IEpisode {
   id: number;
@@ -23,30 +23,31 @@ interface IEpisode {
   _links: { self: { href: string } };
 }
 
-
 export default function MainContent(): JSX.Element {
-  
   const [text, setText] = useState("");
 
-  function filterNames (object: IEpisode){
-   if (object.summary.toLowerCase().includes(text.toLowerCase()) || object.name.toLowerCase().includes(text.toLowerCase())){
-    return true
-   }
+  function filterNames(object: IEpisode) {
+    if (
+      object.summary.toLowerCase().includes(text.toLowerCase()) ||
+      object.name.toLowerCase().includes(text.toLowerCase())
+    ) {
+      return true;
+    }
   }
-  
-  const filteredEpisodes = fixedSummaryEpisodes.filter(filterNames)
-  
+
+  const filteredEpisodes = fixedSummaryEpisodes.filter(filterNames);
+
   const episode = filteredEpisodes.map(EpisodeEntry);
 
   return (
     <>
-     <input
-          placeholder="search..."
-          value={text}
-          onChange={(event) => {
-            setText(event.target.value);
-          }}
-        />
+      <input
+        placeholder="search..."
+        value={text}
+        onChange={(event) => {
+          setText(event.target.value);
+        }}
+      />
       <div>{episode}</div>
       <Footer />
     </>
