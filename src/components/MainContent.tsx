@@ -1,5 +1,5 @@
-
-import { fixedSummaryEpisodes } from "../utils/fixSummary"
+import Footer from "./Footer";
+import { fixedSummaryEpisodes } from "../utils/fixSummary";
 import EpisodeEntry from "./EpisodeEntry";
 
 export default function MainContent(): JSX.Element {
@@ -7,6 +7,7 @@ export default function MainContent(): JSX.Element {
   return (
     <>
       <div>{episode}</div>
+      <Footer />
     </>
   );
 }

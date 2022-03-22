@@ -1,4 +1,4 @@
-import {fixEpisodeNumber} from "../utils/fixEpisodeNumber"
+import { fixEpisodeNumber } from "../utils/fixEpisodeNumber";
 
 interface IEpisode {
   id: number;
@@ -20,7 +20,6 @@ interface IEpisode {
 }
 
 export default function EpisodeEntry(props: IEpisode): JSX.Element {
-
   return (
     <>
       <h1>{props.name}</h1>
