@@ -1,3 +1,5 @@
+import {fixEpisodeNumber} from "../utils/fixEpisodeNumber"
+
 interface IEpisode {
   id: number;
   url: string;
@@ -18,11 +20,12 @@ interface IEpisode {
 }
 
 export default function EpisodeEntry(props: IEpisode): JSX.Element {
+
   return (
     <>
       <h1>{props.name}</h1>
       <h3>
-        {props.season}, {props.number}
+        S{fixEpisodeNumber(props.season)}E{fixEpisodeNumber(props.number)}
       </h3>
       <img src={props.image.medium} alt="GOT" />
       <p>{props.summary}</p>
