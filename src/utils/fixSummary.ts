@@ -20,7 +20,7 @@ interface IEpisode {
   _links: { self: { href: string } };
 }
 
-export function fixSummary(array: IEpisode[]) {
+export function fixSummary(array: IEpisode[]): IEpisode[]{
   const newArr = [];
   for (const object of array) {
     object.summary = object.summary.slice(3, object.summary.length - 4);
