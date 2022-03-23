@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(133, 134, 172);
+    width: 95%;;
+    height: auto;
+    margin: 50px auto;
+    border-radius: 200px;
+    padding: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
