@@ -7,7 +7,7 @@ export function fixSummary(array: IEpisode[]): IEpisode[] {
     object.summary = object.summary.slice(3, object.summary.length - 4);
     newArr.push(object);
   }
-  return newArr
+  return newArr;
 }
 
 const fixedSummaryEpisodes = fixSummary(episodes);
