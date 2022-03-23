@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { IEpisode } from "../utils/IEpisode";
 
 export default function MainContent(): JSX.Element {
-//fetching the episode data from the URL
+  //fetching the episode data from the URL
   const [data, setData] = useState<IEpisode>();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function MainContent(): JSX.Element {
     };
     fetchSeries();
   }, [data]);
-//search bar
+  //search bar
   const [text, setText] = useState("");
 
   function filterNames(object: IEpisode) {
