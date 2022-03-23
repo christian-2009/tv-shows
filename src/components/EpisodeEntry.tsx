@@ -1,23 +1,5 @@
 import { fixEpisodeNumber } from "../utils/fixEpisodeNumber";
-
-interface IEpisode {
-  id: number;
-  url: string;
-  name: string;
-  season: number;
-  number: number;
-  type: string;
-  airdate: string;
-  airtime: string;
-  airstamp: string;
-  runtime: number;
-  image: {
-    medium: string;
-    original: string;
-  };
-  summary: string;
-  _links: { self: { href: string } };
-}
+import { IEpisode } from "../utils/IEpisode";
 
 export default function EpisodeEntry(props: IEpisode): JSX.Element {
   return (
@@ -26,7 +8,7 @@ export default function EpisodeEntry(props: IEpisode): JSX.Element {
       <h3>
         S{fixEpisodeNumber(props.season)}E{fixEpisodeNumber(props.number)}
       </h3>
-      <img src={props.image.medium} alt="GOT" />
+      {props.image && <img src={props.image.medium} alt="GOT" />}
       <p>{props.summary}</p>
     </>
   );

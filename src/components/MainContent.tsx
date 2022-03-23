@@ -1,29 +1,22 @@
 import Footer from "./Footer";
 import { fixedSummaryEpisodes } from "../utils/fixSummary";
 import EpisodeEntry from "./EpisodeEntry";
-import React, { useState } from "react";
-
-interface IEpisode {
-  id: number;
-  url: string;
-  name: string;
-  season: number;
-  number: number;
-  type: string;
-  airdate: string;
-  airtime: string;
-  airstamp: string;
-  runtime: number;
-  rating: { average: number };
-  image: {
-    medium: string;
-    original: string;
-  };
-  summary: string;
-  _links: { self: { href: string } };
-}
+import { useEffect, useState } from "react";
+import { IEpisode } from "../utils/IEpisode";
 
 export default function MainContent(): JSX.Element {
+  //fetching the episode data from the URL
+  const [data, setData] = useState<IEpisode>();
+
+  useEffect(() => {
+    const fetchSeries = async () => {
+      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
+      const jsonBody: IEpisode = await response.json();
+      setData(jsonBody);
+    };
+    fetchSeries();
+  }, [data]);
+  //search bar
   const [text, setText] = useState("");
 
   function filterNames(object: IEpisode) {
@@ -48,6 +41,10 @@ export default function MainContent(): JSX.Element {
           setText(event.target.value);
         }}
       />
+      <p>
+        Display {filteredEpisodes.length} /{fixedSummaryEpisodes.length}{" "}
+        episodes
+      </p>
       <div>{episode}</div>
       <Footer />
     </>
