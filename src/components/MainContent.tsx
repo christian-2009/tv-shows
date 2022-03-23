@@ -48,6 +48,7 @@ export default function MainContent(): JSX.Element {
           setText(event.target.value);
         }}
       />
+      <p>Display {filteredEpisodes.length} /{fixedSummaryEpisodes.length} episodes</p>
       <div>{episode}</div>
       <Footer />
     </>
