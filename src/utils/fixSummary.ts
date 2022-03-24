@@ -11,8 +11,7 @@ import { IEpisode } from "../utils/IEpisode";
 
 export function fixSummary(array: IEpisode[]): IEpisode[] {
   for (const object of array) {
-    object.summary = object.summary.replace(/(<([^>]+)>)/g, "")
+    object.summary = object.summary.replace(/(<([^>]+)>)/g, "");
   }
   return array;
 }
-
