@@ -1,21 +1,21 @@
 import Footer from "./Footer";
-import { fixedSummaryEpisodes } from "../utils/fixSummary";
+import { fixSummary } from "../utils/fixSummary";
 import EpisodeEntry from "./EpisodeEntry";
 import { useEffect, useState } from "react";
 import { IEpisode } from "../utils/IEpisode";
 
 export default function MainContent(): JSX.Element {
   //fetching the episode data from the URL
-  const [data, setData] = useState<IEpisode>();
+  const [data, setData] = useState<IEpisode[]>([]);
 
   useEffect(() => {
     const fetchSeries = async () => {
-      const response = await fetch("https://api.tvmaze.com/shows/82/episodes");
-      const jsonBody: IEpisode = await response.json();
+      const response = await fetch("https://api.tvmaze.com/shows/83/episodes");
+      const jsonBody: IEpisode[] = await response.json();
       setData(jsonBody);
     };
     fetchSeries();
-  }, [data]);
+  }, []);
   //search bar
   const [text, setText] = useState("");
 
@@ -27,6 +27,8 @@ export default function MainContent(): JSX.Element {
       return true;
     }
   }
+
+  const fixedSummaryEpisodes = fixSummary(data);
 
   const filteredEpisodes = fixedSummaryEpisodes.filter(filterNames);
 
