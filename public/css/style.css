@@ -1,12 +1,21 @@
 body{
-    background-color: rgb(133, 134, 172);
-    width: 95%;;
+    background-color: rgb(167, 168, 223);
+    width: 50%;
     height: auto;
-    margin: 50px auto;
-    border-radius: 200px;
+    margin: auto;
+    border-radius: 700px;
     padding: 50px;
+    
+}
+
+/* .episode {
+    text-align: center;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     justify-content: center;
-}
+} */
+
+/* .summary {
+    padding: 10px 150px;
+} */
